@@ -37,4 +37,12 @@ def inscribir():
 
     db.session.add(inscripcion)
     db.session.commit()
-    return jsonify({'message': 'Inscripción exitosa'})
+    return jsonify({
+        'message': 'Inscripción exitosa',
+        'user_name': user_name,
+        'user_lastname': user_lastname,
+        'dni': dni,
+        'subject': subject,
+        'transaction_id': txid
+    })
+
