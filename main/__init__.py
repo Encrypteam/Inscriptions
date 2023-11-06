@@ -9,7 +9,6 @@ pymysql.install_as_MySQLdb()
 db = SQLAlchemy()
 
 
-
 def create_app():
     app = Flask(__name__)
     load_dotenv()

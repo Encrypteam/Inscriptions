@@ -1,1 +1,0 @@
-from .inscription import  InscriptionSchema

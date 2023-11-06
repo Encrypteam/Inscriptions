@@ -3,7 +3,9 @@ from main import db
 from main.models import Inscription
 from main.blockchain.algorand import send_algorand_txn, sign_algorand_txn, create_algorand_txn
 
+
 routes = Blueprint('inscription_controller', __name__)
+
 
 @routes.route('/inscribir', methods=['POST'])
 def inscribir():
@@ -32,7 +34,7 @@ def inscribir():
         user_lastname=user_lastname,
         dni=dni,
         subject=subject,
-        trasaction_id=txid
+        transaction_id=txid
     )
 
     db.session.add(inscripcion)
@@ -45,4 +47,11 @@ def inscribir():
         'subject': subject,
         'transaction_id': txid
     })
+
+
+@routes.route('/inscriptions', methods=['GET'])
+def inscriptions():
+    inscriptions = Inscription.query.all()
+    inscriptions_list = [inscription.to_dict() for inscription in inscriptions]
+    return jsonify(inscriptions_list)
 
