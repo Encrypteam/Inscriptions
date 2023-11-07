@@ -7,7 +7,7 @@ class Inscription(db.Model):
     user_name = db.Column('user_name', db.String(50), nullable=False)
     user_lastname = db.Column('user_lastname', db.String(50), nullable=False)
     dni = db.Column('dni', db.Integer, nullable=False, unique=True)
-    subject = db.Column('signature', db.String(50), nullable=False, unique=True)
+    subject = db.Column('signature', db.String(50), nullable=False)
     transaction_id = db.Column('transaction_id', db.String(120), nullable=False, unique=True)
 
     def __repr__(self):
